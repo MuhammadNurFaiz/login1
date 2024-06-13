@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>ABSENSI PENGURUS PONDOK PUTRA</title>
+</head>
+
+<style>
+    body,
+    html {
+        margin-top: 100px;
+        background-image: url("jalan.jpg");
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        background-repeat: no-repeat;
+    }
+
+    * {
+        min-height: 100%;
+    }
+
+    .container {
+        position: absolute;
+        width: 700px;
+        margin: 16px auto;
+        right: 37%;
+        text-align: center;
+
+    }
+
+    .container-header {
+        background-color: rgb(8, 118, 207);
+        font-size: 1.7em;
+        padding: 16px;
+        display: block;
+        text-align: center;
+        font-weight: normal;
+    
+        
+
+    }
+
+    .header-content {
+        width: 16%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 22px;
+    }
+
+    .header-content p {
+        margin-bottom: 0em;
+    }
+
+    .container-login {
+        background-color: aqua;
+        padding: 50px;
+        text-align: center;
+        color: black;
+    }
+    
+    .container-login p {
+        margin-bottom: 50px;
+    }
+
+    .container-login input {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        border-width: 3px;
+        border-style: solid;
+        padding: 20px;
+        font-size: xx-large;
+        
+        
+
+    }
+
+
+    .container-login button {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        border-width: 3px;
+        border-style: solid;
+        padding: 20px;
+        font-size: xx-large;
+        background-color: rgb(15, 142, 226);
+    }
+
+</style>
+
+<body translate="no">
+    <div class="bg-img">
+        <div>
+            <form class="container">
+                <div class="container-header">
+                    <img src="fb.jpg" alt="" class="header-content">
+                    <p>LOGIN PENGURUS</p>
+                </div>
+    
+                <div class="container-login" method="post">
+                    <p>
+                        <input type="text" placeholder="NAMA" required="required" id="nama">
+                    </p>
+                    <p>
+                        <input type="password" required="required" id="pw" placeholder="PASSWORD" required>
+                    </p>
+                    <p>
+                        <button onclick="onlogin()" id="loginButton">LOGIN</button>
+                    </p>
+                </div>
+            </form>
+            <script type="application/javascript">
+
+                let nama = document.getElementById('nama');
+                let pw = document.getElementById('pw')
+                let loginButton = document.getElementById('loginButton')
+                let logoutButton = document.getElementById('logoutButton')
+                let admin = document.getElementById('admin')
+                let basic = document.getElementById('basic')
+        
+                admin.style.display = "none";
+                basic.style.display = "none";
+                logoutButton.style.display = "none"
+        
+        
+                function onlogin() {
+                    localStorage.setItem("NAMA", nama.value);
+                    logoutButton.style.display = "block"
+                    if (usernameInput.value == "nama" && passwordInput.value == "nama123") {
+                        localStorage.setItem("role", "admin")
+                        usernameInput.style.display = "none"
+                        passwordInput.style.display = "none"
+                        loginButton.style.display = "none"
+                        basic.style.display = "none"
+                        admin.style.display = "block"
+                    } else {
+                        usernameInput.style.display = "none"
+                        passwordInput.style.display = "none"
+                        loginButton.style.display = "none"
+                        localStorage.setItem("role", "basic")
+                        admin.style.display = "none"
+                        basic.style.display = "block"
+                        
+        
+                    }
+        
+                }
+        
+                if (localStorage.getItem('NAMA')){
+                    usernameInput.style.display = "none"
+                    passwordInput.style.display = "none"
+                    loginButton.style.display = "none"
+                    logoutButton.style.display = "block"
+                    if (localStorage.getItem('role') == "admin") {
+                        basic.style.display = "none"
+                        admin.style.display = "block"
+                    }else {
+                        admin.style.display = "none"
+                        basic.style.display = "block"
+        
+                    }
+        
+        
+                }
+        
+                function onlogout() {
+                    localStorage.clear();
+                    location.reload();
+                }
+            </script>
+        </div>
+
+       
+
+    </div>
+
+</body>
+
+</html>
