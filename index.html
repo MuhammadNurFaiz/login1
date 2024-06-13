@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <link rel="stylesheet" href="style1.css">
     <title>ABSENSI PENGURUS PONDOK PUTRA</title>
 </head>
@@ -39,8 +40,8 @@
         display: block;
         text-align: center;
         font-weight: normal;
-    
-        
+
+
 
     }
 
@@ -62,7 +63,7 @@
         text-align: center;
         color: black;
     }
-    
+
     .container-login p {
         margin-bottom: 50px;
     }
@@ -75,8 +76,8 @@
         border-style: solid;
         padding: 20px;
         font-size: xx-large;
-        
-        
+
+
 
     }
 
@@ -91,7 +92,6 @@
         font-size: xx-large;
         background-color: rgb(15, 142, 226);
     }
-
 </style>
 
 <body translate="no">
@@ -102,7 +102,7 @@
                     <img src="fb.jpg" alt="" class="header-content">
                     <p>LOGIN PENGURUS</p>
                 </div>
-    
+
                 <div class="container-login" method="post">
                     <p>
                         <input type="text" placeholder="NAMA" required="required" id="nama">
@@ -123,12 +123,12 @@
                 let logoutButton = document.getElementById('logoutButton')
                 let admin = document.getElementById('admin')
                 let basic = document.getElementById('basic')
-        
+
                 admin.style.display = "none";
                 basic.style.display = "none";
                 logoutButton.style.display = "none"
-        
-        
+
+
                 function onlogin() {
                     localStorage.setItem("NAMA", nama.value);
                     logoutButton.style.display = "block"
@@ -146,13 +146,13 @@
                         localStorage.setItem("role", "basic")
                         admin.style.display = "none"
                         basic.style.display = "block"
-                        
-        
+
+
                     }
-        
+
                 }
-        
-                if (localStorage.getItem('NAMA')){
+
+                if (localStorage.getItem('NAMA')) {
                     usernameInput.style.display = "none"
                     passwordInput.style.display = "none"
                     loginButton.style.display = "none"
@@ -160,15 +160,15 @@
                     if (localStorage.getItem('role') == "admin") {
                         basic.style.display = "none"
                         admin.style.display = "block"
-                    }else {
+                    } else {
                         admin.style.display = "none"
                         basic.style.display = "block"
-        
+
                     }
-        
-        
+
+
                 }
-        
+
                 function onlogout() {
                     localStorage.clear();
                     location.reload();
@@ -176,7 +176,7 @@
             </script>
         </div>
 
-       
+
 
     </div>
 
